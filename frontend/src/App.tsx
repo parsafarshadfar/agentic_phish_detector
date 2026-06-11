@@ -38,17 +38,34 @@ export default function App() {
           margin: "var(--space-md) 0 0",
           fontSize: "var(--text-2xl)",
           fontWeight: "900",
-          background: "linear-gradient(90deg, var(--color-primary), #ff7eb3, #7e8cff)",
+          background: "linear-gradient(90deg, #1e40af, #3b82f6, #60a5fa)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
           backgroundClip: "text",
           color: "transparent",
-          textShadow: "0px 4px 15px rgba(255, 126, 179, 0.4)",
+          textShadow: "0px 4px 15px rgba(59, 130, 246, 0.4)",
           letterSpacing: "1px",
           paddingTop: "var(--space-sm)"
         }}>
           Developed by Parsa Farshadfar
         </p>
+        <a
+          href="https://parsafarshadfar.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "inline-block",
+            marginTop: "8px",
+            fontSize: "1.1rem",
+            fontWeight: "600",
+            color: "#60a5fa",
+            textDecoration: "none",
+            letterSpacing: "0.5px",
+            textShadow: "0px 2px 10px rgba(96, 165, 250, 0.3)"
+          }}
+        >
+          parsafarshadfar.com
+        </a>
       </footer>
     </>
   );
