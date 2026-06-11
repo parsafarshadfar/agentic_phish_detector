@@ -1,0 +1,119 @@
+/* ═══════════════════════════════════════════════════
+   AgenticPhishDetector — Design Tokens
+   Cybersecurity-themed color system with light + dark modes
+   ═══════════════════════════════════════════════════ */
+
+:root, [data-theme="light"] {
+  /* ── Base palette ── */
+  --color-bg: #f4f5f7;
+  --color-surface: #ffffff;
+  --color-surface-2: #f8f9fb;
+  --color-surface-offset: #eef0f3;
+  --color-border: #e2e4e9;
+  --color-border-subtle: #eff0f2;
+
+  /* ── Primary (Teal — safe/legitimate) ── */
+  --color-primary: #0a7c8a;
+  --color-primary-hover: #086d79;
+  --color-primary-glow: rgba(10, 124, 138, 0.15);
+
+  /* ── Text ── */
+  --color-text: #1a1d23;
+  --color-text-muted: #6b7280;
+  --color-text-subtle: #9ca3af;
+
+  /* ── Verdict colors ── */
+  --color-verdict-phishing: #d93025;
+  --color-verdict-phishing-bg: rgba(217, 48, 37, 0.08);
+  --color-verdict-phishing-glow: rgba(217, 48, 37, 0.25);
+  --color-verdict-suspicious: #f59e0b;
+  --color-verdict-suspicious-bg: rgba(245, 158, 11, 0.08);
+  --color-verdict-legitimate: #16a34a;
+  --color-verdict-legitimate-bg: rgba(22, 163, 74, 0.08);
+
+  /* ── Risk severity highlights ── */
+  --color-highlight-low: #fef9c3;
+  --color-highlight-medium: #fed7aa;
+  --color-highlight-high: #fecaca;
+  --color-highlight-critical: #fca5a5;
+
+  /* ── Shadows ── */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-glow-phishing: 0 0 20px rgba(217, 48, 37, 0.2);
+  --shadow-glow-legitimate: 0 0 20px rgba(22, 163, 74, 0.15);
+
+  /* ── Spacing ── */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* ── Border radius ── */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* ── Typography ── */
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', 'Fira Code', 'Consolas', monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.5rem;
+  --text-5xl: 3.5rem;
+
+  /* ── Transitions ── */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+[data-theme="dark"] {
+  --color-bg: #0d1117;
+  --color-surface: #161b22;
+  --color-surface-2: #1c2130;
+  --color-surface-offset: #21262d;
+  --color-border: #30363d;
+  --color-border-subtle: #21262d;
+
+  --color-primary: #39c5cf;
+  --color-primary-hover: #4dd5de;
+  --color-primary-glow: rgba(57, 197, 207, 0.2);
+
+  --color-text: #e6edf3;
+  --color-text-muted: #8b949e;
+  --color-text-subtle: #6e7681;
+
+  --color-verdict-phishing: #f87171;
+  --color-verdict-phishing-bg: rgba(248, 113, 113, 0.1);
+  --color-verdict-phishing-glow: rgba(248, 113, 113, 0.3);
+  --color-verdict-suspicious: #fbbf24;
+  --color-verdict-suspicious-bg: rgba(251, 191, 36, 0.1);
+  --color-verdict-legitimate: #4ade80;
+  --color-verdict-legitimate-bg: rgba(74, 222, 128, 0.1);
+
+  --color-highlight-low: rgba(254, 249, 195, 0.15);
+  --color-highlight-medium: rgba(254, 215, 170, 0.2);
+  --color-highlight-high: rgba(254, 202, 202, 0.25);
+  --color-highlight-critical: rgba(252, 165, 165, 0.35);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow-phishing: 0 0 24px rgba(248, 113, 113, 0.25);
+  --shadow-glow-legitimate: 0 0 24px rgba(74, 222, 128, 0.2);
+}

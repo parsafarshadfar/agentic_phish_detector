@@ -1,0 +1,15 @@
+# wrangler.toml — Cloudflare Pages + Worker Configuration
+name = "agenticphishdetector-proxy"
+compatibility_date = "2024-01-01"
+main = "workers/proxy.ts"
+
+[vars]
+BACKEND_ORIGIN = "https://your-backend-server.com"
+
+# Secrets (set via: npx wrangler secret put WORKER_SECRET)
+# WORKER_SECRET — shared token between worker and backend
+
+# Routes (uncomment when deploying)
+# [[routes]]
+# pattern = "parsafarshadfar.com/agenticphishdetector/api/*"
+# zone_name = "parsafarshadfar.com"
