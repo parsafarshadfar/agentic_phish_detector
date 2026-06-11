@@ -158,8 +158,10 @@ async def run(state: AgentState) -> dict[str, Any]:
             api_key=settings.nvidia_api_key,
             temperature=0.1,
             max_tokens=1024,
-            timeout=settings.request_timeout,
-            max_retries=1,
+            model_kwargs={
+                "timeout": settings.request_timeout,
+                "max_retries": 1,
+            },
         )
 
         messages = [
