@@ -9,8 +9,8 @@
 import { useState, useCallback } from "react";
 import type { AnalyzeRequest, AnalyzeResponse } from "../types/api";
 
-/** API base URL — empty string uses Vite proxy in dev, set VITE_API_URL or defaults to '/agenticphishdetector' in production */
-const API_BASE = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? "/agenticphishdetector" : "");
+/** API base URL — empty string uses Vite proxy in dev, set VITE_API_URL or defaults to '' in production */
+const API_BASE = import.meta.env.VITE_API_URL || "";
 
 interface UseAnalyzeReturn {
   result: AnalyzeResponse | null;

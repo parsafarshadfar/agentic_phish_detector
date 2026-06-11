@@ -1,7 +1,7 @@
 /**
  * AgenticPhishDetector — Cloudflare Worker Proxy
  *
- * Intercepts /agenticphishdetector/api/* requests and proxies them
+ * Intercepts /api/* requests and proxies them
  * to the backend server. Adds a shared secret token, enforces
  * origin policy, and rate limits at the edge.
  */
@@ -67,8 +67,8 @@ export default {
       }
     }
 
-    // Rewrite URL: strip /agenticphishdetector prefix
-    const backendPath = url.pathname.replace("/agenticphishdetector", "");
+    // Rewrite URL
+    const backendPath = url.pathname;
     const backendUrl = `${env.BACKEND_ORIGIN}${backendPath}${url.search}`;
 
     // Forward request with worker secret
