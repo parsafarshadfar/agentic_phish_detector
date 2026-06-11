@@ -127,6 +127,3 @@ python -m pytest tests/ -v
 cd frontend
 npm run build
 ```
-
-## License
-MIT
