@@ -38,10 +38,6 @@ frontend/.vite/
 !.env.example
 !backend/.env.example
 
-# =========================
-# Datasets (large files)
-# =========================
-datasets/
 
 # =========================
 # IDE / OS
@@ -60,3 +56,8 @@ desktop.ini
 # =========================
 *.log
 logs/
+
+# =========================
+# Custom Ignored Files
+# =========================
+deployment.md
