@@ -3,10 +3,9 @@
 > AI-powered multi-agent phishing email detection using LangGraph + NVIDIA Nemotron-3-ultra-550b-a55b model. 
 
 ```
-parsafarshadfar.com/agenticphishdetector
-├── React SPA (Cloudflare Pages)
-│   └── Cloudflare Worker proxy → Backend API
-│
+AgenticPhishDetector
+├── React SPA (e.g. Cloudflare Pages)
+│   
 └── FastAPI + LangGraph Agent Pipeline
     ├── Supervisor (Nemotron LLM) → decides tools
     ├── HeaderParser → email metadata analysis

@@ -13,6 +13,9 @@ export default defineConfig({
       "/api": {
         target: "http://localhost:8000",
         changeOrigin: true,
+        headers: {
+          "X-Worker-Token": "REPLACE_WITH_A_STRONG_RANDOM_SECRET"
+        }
       },
     },
   },
