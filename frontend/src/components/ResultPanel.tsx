@@ -144,7 +144,7 @@ export function ResultPanel({ result }: ResultPanelProps) {
       }}
       id="result-panel"
     >
-      <div style={{
+      <div className="result-panel-content" style={{
         display: "flex",
         alignItems: "center",
         gap: "var(--space-xl)",
@@ -155,7 +155,7 @@ export function ResultPanel({ result }: ResultPanelProps) {
 
         {/* Verdict & Summary */}
         <div style={{ flex: 1, minWidth: 250 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "var(--space-md)", marginBottom: "var(--space-sm)" }}>
+          <div className="result-panel-header" style={{ display: "flex", alignItems: "center", gap: "var(--space-md)", marginBottom: "var(--space-sm)" }}>
             <span className={`badge ${config.className}`} style={{ fontSize: "var(--text-sm)", padding: "0.4rem 1rem" }}>
               {config.icon}
               {result.verdict}

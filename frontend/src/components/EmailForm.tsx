@@ -73,7 +73,7 @@ export function EmailForm({ onSubmit, isLoading, onClear }: EmailFormProps) {
         📧 Email to Analyze
       </h2>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-md)" }}>
+      <div className="form-grid">
         {/* Sender Email */}
         <div className="form-group">
           <label className="form-label" htmlFor="sender-email">
@@ -165,7 +165,7 @@ export function EmailForm({ onSubmit, isLoading, onClear }: EmailFormProps) {
       </div>
 
       {/* Buttons */}
-      <div style={{ display: "flex", gap: "var(--space-md)", marginTop: "var(--space-lg)", justifyContent: "flex-end" }}>
+      <div className="form-actions" style={{ display: "flex", gap: "var(--space-md)", marginTop: "var(--space-lg)", justifyContent: "flex-end" }}>
         <button
           type="button"
           className="btn btn-secondary"
