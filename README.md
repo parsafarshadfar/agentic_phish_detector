@@ -1,6 +1,6 @@
 # AgenticPhishDetector
 
-> AI-powered multi-agent phishing email detection using LangGraph + NVIDIA Nemotron
+> AI-powered multi-agent phishing email detection using LangGraph + NVIDIA Nemotron-3-ultra-550b-a55b model. 
 
 ```
 parsafarshadfar.com/agenticphishdetector
@@ -24,10 +24,7 @@ parsafarshadfar.com/agenticphishdetector
 - **Highlighted evidence**: Character-offset spans highlight phishing indicators in the email body
 - **Per-tool reasoning**: Expandable cards show each tool's findings and risk assessment
 - **AI reasoning trace**: View the LLM's chain-of-thought reasoning
-- **Evaluation dashboard**: Batch evaluate against Nazario, CEAS, Nigerian Fraud, and other datasets
-- **Interactive KPI charts**: Plotly.js confusion matrix, confidence histograms, processing time boxplots
-- **Dark/light themes**: Cybersecurity-inspired design with theme persistence
-- **20 example emails**: Pre-loaded phishing and legitimate examples for quick testing
+- **Example emails**: Pre-included phishing and legitimate examples for quick testing
 
 ## Prerequisites
 
@@ -82,24 +79,7 @@ The app will be available at `http://localhost:5173/agenticphishdetector/`.
 | `ALLOWED_ORIGINS` | Comma-separated CORS origins | Yes |
 | `RATE_LIMIT_PER_MINUTE` | Max API requests per IP per minute | No (default: 10) |
 | `MAX_BODY_LENGTH` | Max email body characters | No (default: 50000) |
-| `DATASET_DIR` | Path to evaluation dataset CSVs | No |
 | `WORKER_SECRET` | Shared secret for Cloudflare Worker auth | Production only |
-
-## Dataset Setup
-
-Place dataset CSVs in the `datasets/` directory (gitignored):
-
-```
-datasets/
-├── Nazario.csv      # Already included in example dataset/
-├── ceas.csv
-├── nigerian_fraud.csv
-├── spam_assassin.csv
-├── enron.csv
-└── ling.csv
-```
-
-Expected CSV format: `sender,receiver,date,subject,body,urls,label`
 
 ## Deployment
 
@@ -125,7 +105,6 @@ fly secrets set NVIDIA_API_KEY=your-key
 | Method | Path | Description |
 |---|---|---|
 | `POST` | `/api/analyze` | Analyze a single email for phishing |
-| `POST` | `/api/evaluate` | Run batch evaluation on a dataset |
 | `GET` | `/api/health` | Health check |
 | `GET` | `/api/docs` | Swagger UI documentation |
 
@@ -149,10 +128,5 @@ cd frontend
 npm run build
 ```
 
-## Citations
-
-Dataset reference: Al-Subaiey, A., et al. (2024). "Novel Interpretable and Robust Web-based AI Platform for Phishing Email Detection."
-
 ## License
-
 MIT
