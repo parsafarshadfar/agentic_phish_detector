@@ -4,7 +4,9 @@
 
 
 # Demo  
-Check out the live demo: [https://agenticphishdetector.pages.dev/](https://agenticphishdetector.pages.dev/)
+Check out the live demo: 
+[https://agenticphishdetector.parsafarshadfar.com/](https://agenticphishdetector.parsafarshadfar.com/) or
+[https://agenticphishdetector.pages.dev/](https://agenticphishdetector.pages.dev/)
 
  
 
