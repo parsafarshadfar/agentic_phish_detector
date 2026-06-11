@@ -34,7 +34,19 @@ export default function App() {
         <p style={{ margin: "var(--space-xs) 0 0", opacity: 0.7 }}>
           Emails submitted for analysis are not stored or used for training.
         </p>
-        <p style={{ margin: "var(--space-sm) 0 0", opacity: 0.5, fontSize: "var(--text-xs)" }}>
+        <p style={{
+          margin: "var(--space-md) 0 0",
+          fontSize: "var(--text-2xl)",
+          fontWeight: "900",
+          background: "linear-gradient(90deg, var(--color-primary), #ff7eb3, #7e8cff)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+          color: "transparent",
+          textShadow: "0px 4px 15px rgba(255, 126, 179, 0.4)",
+          letterSpacing: "1px",
+          paddingTop: "var(--space-sm)"
+        }}>
           Developed by Parsa Farshadfar
         </p>
       </footer>
