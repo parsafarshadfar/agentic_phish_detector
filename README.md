@@ -46,17 +46,19 @@ AgenticPhishDetector
 ```bash
 cd backend
 
-# Create virtual environment
+# Create virtual environment (only first time)
 python -m venv .venv
+
+#Activate virtual environment
 .venv\Scripts\activate  # Windows
 source .venv/bin/activate  # macOS/Linux
 
-# Install dependencies
+# Install dependencies (only first time)
 pip install -r requirements.txt
 
-# Copy and configure environment
+# Copy and configure environment (only first time)
 copy .env.example .env
-# Edit .env with your NVIDIA_API_KEY
+# Edit .env with your personal NVIDIA_API_KEY
 
 # Run the server
 uvicorn main:app --reload --port 8000
@@ -88,24 +90,15 @@ The app will be available at `http://localhost:5173/agenticphishdetector/`.
 | `MAX_BODY_LENGTH` | Max email body characters | No (default: 50000) |
 | `WORKER_SECRET` | Shared secret for Cloudflare Worker auth | Production only |
 
-## Deployment
+## Online Deployment
 
-### Frontend (Cloudflare Pages)
+### 1. Backend (Render)
+- Deploy using the repository's Blueprint (`render.yaml`).
+- Set environment variables: `NVIDIA_API_KEY`, `WORKER_SECRET`, and `ALLOWED_ORIGINS`.
 
-1. Connect GitHub repo to Cloudflare Pages
-2. Build command: `cd frontend && npm install && npm run build`
-3. Output directory: `frontend/dist`
-4. Set `BACKEND_ORIGIN` in `wrangler.toml`
-5. Deploy the Worker proxy: `cd frontend && npx wrangler deploy`
-
-### Backend (Fly.io / Railway / Render)
-
-```bash
-cd backend
-# Deploy with Docker
-fly launch --dockerfile Dockerfile
-fly secrets set NVIDIA_API_KEY=your-key
-```
+### 2. Frontend (Cloudflare Pages)
+- Connect repository, configure root directory to `frontend`, build command to `npm run build`, and output directory to `dist`.
+- Set environment variables: `BACKEND_ORIGIN` and `WORKER_SECRET` (encrypted).
 
 ## API Endpoints
 
@@ -118,10 +111,10 @@ fly secrets set NVIDIA_API_KEY=your-key
 ## Security
 
 - NVIDIA API key stored only in backend `.env`, never exposed to frontend
-- All user input sanitized (HTML stripped, truncated, validated)
-- Prompt injection protection with explicit content delimiters
-- Rate limiting at both Cloudflare Worker edge and FastAPI levels
-- CORS whitelist restricts origins
+- Shared `WORKER_SECRET` authentication header secures backend-frontend communication and prevents unauthorized direct API access
+- Input sanitization: User inputs undergo a strict pipeline—HTML tags are stripped using `bleach` to prevent cross-site scripting (XSS) and injection attacks, text is truncated (50k characters for body, 500 for subject) to prevent Denial of Service (DoS) and context overflow, and email addresses are structurally validated via RFC-compliant patterns.
+- Prompt injection protection: email inputs are strictly encapsulated within explicit `--- BEGIN EMAIL CONTENT (untrusted) ---` and `--- END EMAIL CONTENT ---` boundaries in LLM prompts, with system instructions enforcing that content inside the delimiters is treated as data, not instructions.
+- Layered rate limiting: Request rates are constrained at the edge via Cloudflare Workers (using the `RATE_LIMITER` binding to filter traffic by IP before forwarding) and at the application layer via FastAPI (using SlowAPI to track and restrict client remote IP requests).
 
 ## Testing
 
