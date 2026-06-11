@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: agentic-phish-detector-api
+    env: python
+    region: oregon # Or choose frankfurt, ohio, singapore
+    buildCommand: "cd backend && pip install -r requirements.txt"
+    startCommand: "cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: NVIDIA_API_KEY
+        sync: false # Set in the Render dashboard securely
+      - key: ALLOWED_ORIGINS
+        value: "https://agenticphishdetector.parsafarshadfar.com,http://localhost:5173"
+      - key: RATE_LIMIT_PER_MINUTE
+        value: "10"
+      - key: DEBUG
+        value: "false"
